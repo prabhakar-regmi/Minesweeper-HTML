@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head class="header">
+        <title>Minesweeper : By Prabhakar Regmi</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel = 'stylesheet' href='../CSS/index.css'/>
+        <p>Minesweeper</p>
+        <div class='navMenu' id = nav'>
+            <a href="#" onclick="openForm()">Board Size</a>
+            <a href="#" onclick="restart()">Resart</a>
+            <a href="#">About</a>
+            <div class="dot"></div>
+        </div>
+    </head>
+
+    <div class="form-popup" id="myForm">
+    <form class="form-container">
+        <h1>Grid Size</h1>
+
+        <label for="Rows"><b>Number of Rows</b></label>
+        <input type="number" id="row" value="30" required>
+  
+        <label for="Cols"><b>Number of Columns</b></label>
+        <input type="number" id="col" value="30" required>
+  
+        <button type="button" class="btn" onclick="submitForm()">Submit</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+        </form>
+    </div>
+
+    <div class="news-popup" id="good">
+        <h1>✅ Congratulations</h1>
+
+        <p1>You Have won!</p1>
+
+        <button type="button" class="btn" onclick="restartAfterGoodNews()">Restart</button>
+        <button tupe="button" class="btn cancel" onclick="closeGoodNews()">Cancel</button>
+    </div>
+
+    <div class="news-popup" id="bad">
+        <h1><span>&#9888;</span> Oh No!</h1>
+
+        You clicked on a bomb!
+
+        <button type="button" class="btn" onclick="restartAfterBadNews()">Try Again</button>
+        <button tupe="button" class="btn cancel" onclick="closeBadNews()">Cancel</button>
+    </div>
+
+    
+    <div class='grid' id = 'main'></div>
+
+    <script src = '../JS/Minesweeper.js'></script>
+    <script src = '../JS/index.js'></script>
+    <div class="clear"></div>
+    <footer>
+        <div class='statsRight'><div class='statusText'>Total Bombs:
+                <div class="displaystat" id = 'bombcount'></div>
+            </div></div>
+        <div class='statsLeft'>
+            <div class='statusText'> 
+                Remaining Mines:
+                <div class="displaystat" id = 'minecount'></div>
+            </div>
+        </div>
+    </footer>
+      <!-- Footer ends-->
+      
+      
+</html>

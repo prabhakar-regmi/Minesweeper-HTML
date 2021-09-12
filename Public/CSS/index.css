@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+*{
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.grid
+{
+    display: grid;
+    padding:0.1em;
+    align-self: center;
+}
+
+.cell {
+    background-color: rgb(165, 164, 164);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 0em;
+    font-size: .8fb  asem;
+    font-weight: bolder;
+    text-align: center;
+    vertical-align: middle;
+
+    -moz-box-shadow:    inset 0 0 5px #080808;
+    -webkit-box-shadow: inset 0 0 5px #f3efef;
+    box-shadow:         inset 0 0 10px #e6e3e3;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 150px;
+  left: 150px;
+  border: 3px solid #81818179;
+  z-index: 10;
+}
+
+/* The popup to give outcome
+ - hidden by default */
+.news-popup{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid #81818179;
+    z-index: 10;
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+}
+.news-popup .btn {
+    background-color: blue;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  /* Add a red background color to the cancel button */
+.news-popup .cancel {
+    background-color: red;
+  }
+  
+  /* Add some hover effects to buttons */
+  .news-popup .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
+  
+  
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=number], .form-container input[type=number] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=number]:focus, .form-container input[type=number]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: blue;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+.navMenu {
+  position: relative;
+  top: 10%;
+  left: 10%;
+}
+
+.navMenu a {
+  color: blue;
+  text-decoration: none;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-block;
+  width: 200px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu a:hover {
+  color: orange;
+}
+
+.navMenu .dot {
+  width: 6px;
+  height: 6px;
+  background: red;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-transform: translateX(30px);
+  transform: translateX(30px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu a:nth-child(1):hover ~ .dot {
+  -webkit-transform: translateX(30px);
+  transform: translateX(60px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(2):hover ~ .dot {
+  -webkit-transform: translateX(110px);
+  transform: translateX(240px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(3):hover ~ .dot {
+  -webkit-transform: translateX(290px);
+  transform: translateX(450px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.header{
+    overflow: hidden;
+    background-color: gray;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+p {
+    margin: 16px;
+    font-size: 96px;
+    color: rgba(75, 56, 241, 0.671);
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all 1s ease-in-out;
+    position: relative;
+}
+
+.clear { 
+    clear: both; 
+    height: 60px; 
+}
+
+footer {
+   display: grid;
+    grid-template-columns: auto auto;
+    position: fixed;
+    font-size: 12px;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 14px;
+    background-color: #f1f1f1;
+    color: #000000;
+    overflow: hidden;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding-left: 10px;
+}  
+
+.statusText
+{
+    color: rgb(10,10,10);
+    font-size:1.2em;
+
+}
+
+.displaystat
+{
+    padding-left: 1px;
+    color: rgb(38, 17, 230);
+    text-decoration:khaki;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    width: 200px;
+}
