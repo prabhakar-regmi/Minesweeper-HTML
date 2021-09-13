@@ -89,9 +89,9 @@ class Minesweeper {
         if (visited.has(idx)) return;
 
         visited.add(idx);
-        console.log(`DSOpen(${i}, ${j}, idx = ${idx})`);
-        if (this.HasNeighborBombs(i,j)) return;
+        //console.log(`DSOpen(${i}, ${j}, idx = ${idx})`);
         this.grid_[i][j].Open();
+        if (this.HasNeighborBombs(i,j)) return;
         this.direction_.forEach((dir)=>{
             let ii = i + dir[0];
             let jj = j + dir[1];

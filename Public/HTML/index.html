@@ -9,8 +9,7 @@
         <div class='navMenu' id = nav'>
             <a href="#" onclick="openForm()">Board Size</a>
             <a href="#" onclick="restart()">Resart</a>
-            <a href="#">About</a>
-            <div class="dot"></div>
+            <a href="#" onclick="about()">About</a>
         </div>
     </head>
 
@@ -45,6 +44,14 @@
 
         <button type="button" class="btn" onclick="restartAfterBadNews()">Try Again</button>
         <button tupe="button" class="btn cancel" onclick="closeBadNews()">Cancel</button>
+    </div>
+
+    <div class="news-popup" id="about">
+        <h1><span>&#9432</span>About</h1>
+
+        This version of Minesweeper is developed by Prabhakar Regmi. This was done as an exercise to learn HTML, CSS and NoeJS.
+
+        <button tupe="button" class="btn cancel" onclick="closeAbout()">Cancel</button>
     </div>
 
     

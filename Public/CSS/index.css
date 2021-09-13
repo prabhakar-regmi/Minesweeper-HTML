@@ -15,9 +15,16 @@ body {
     display: grid;
     padding:0.1em;
     align-self: center;
+    justify-content: center;
+    align-content: center;
+    grid-auto-flow: column;
 }
 
-.cell {
+.cell { 
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
     background-color: rgb(165, 164, 164);
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 0em;
@@ -25,7 +32,6 @@ body {
     font-weight: bolder;
     text-align: center;
     vertical-align: middle;
-
     -moz-box-shadow:    inset 0 0 5px #080808;
     -webkit-box-shadow: inset 0 0 5px #f3efef;
     box-shadow:         inset 0 0 10px #e6e3e3;
@@ -35,8 +41,9 @@ body {
 .form-popup {
   display: none;
   position: fixed;
-  top: 150px;
-  left: 150px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border: 3px solid #81818179;
   z-index: 10;
 }
@@ -50,8 +57,9 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     border: 3px solid #81818179;
-    z-index: 10;
-    max-width: 300px;
+    z-index: 40;
+    max-width: 1000px;
+    max-height: 1000px;
     padding: 10px;
     background-color: white;
 }
@@ -123,8 +131,10 @@ body {
 
 .navMenu {
   position: relative;
-  top: 10%;
-  left: 10%;
+  top: 0%;
+  left: 0%;
+  align-content: ceter;
+  text-align: center;
 }
 
 .navMenu a {
@@ -143,42 +153,6 @@ body {
   color: orange;
 }
 
-.navMenu .dot {
-  width: 6px;
-  height: 6px;
-  background: red;
-  border-radius: 50%;
-  opacity: 0;
-  -webkit-transform: translateX(30px);
-  transform: translateX(30px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-
-.navMenu a:nth-child(1):hover ~ .dot {
-  -webkit-transform: translateX(30px);
-  transform: translateX(60px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  opacity: 1;
-}
-
-.navMenu a:nth-child(2):hover ~ .dot {
-  -webkit-transform: translateX(110px);
-  transform: translateX(240px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  opacity: 1;
-}
-
-.navMenu a:nth-child(3):hover ~ .dot {
-  -webkit-transform: translateX(290px);
-  transform: translateX(450px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  opacity: 1;
-}
-
 .header{
     overflow: hidden;
     background-color: gray;
@@ -188,13 +162,14 @@ body {
 }
 
 p {
-    margin: 16px;
-    font-size: 96px;
+    font-size: 90px;
     color: rgba(75, 56, 241, 0.671);
     text-transform: uppercase;
     font-weight: 600;
     transition: all 1s ease-in-out;
     position: relative;
+    align-content: center;
+    text-align: center;
 }
 
 .clear { 
