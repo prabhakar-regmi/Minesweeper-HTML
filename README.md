@@ -21,4 +21,5 @@ Once all the spots are revealed, you win!
 
 # Developer Info
 Prabhakar Regmi
+
 Software Developer (since 2012)
