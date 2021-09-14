@@ -183,6 +183,11 @@ $(document).ready(function(){
                 {
                     $(".cell").eq(visited_idx).html(minesweeper.NeighborBombCount(ii, jj));
                 }
+                else
+                {
+                    // remove flag
+                    $(".cell").eq(visited_idx).html("");
+                }
             }
             document.getElementById('minecount').innerHTML = remaining_mines.toString();
             if  (remaining_mines === 0)
@@ -190,6 +195,7 @@ $(document).ready(function(){
                 openGoodNews();
             }
         }
+        document.getElementById('flaggedcount').innerHTML = minesweeper.TotalFlags();
     });
 
     // RIGHT CLICK EVENT

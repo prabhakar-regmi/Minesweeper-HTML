@@ -103,7 +103,10 @@ class Minesweeper {
         if (visited.has(idx)) return;
 
         visited.add(idx);
-        if (this.grid_[i][j].IsFlagged()) --this.flag_count_;
+        if (this.grid_[i][j].IsFlagged()) {
+            --this.flag_count_;
+            this.grid_[i][j].UnFlag();
+        }
         this.grid_[i][j].Open();
         if (this.HasNeighborBombs(i,j)) return;
         this.direction_.forEach((dir)=>{
