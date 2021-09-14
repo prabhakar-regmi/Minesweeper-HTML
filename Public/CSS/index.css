@@ -177,9 +177,14 @@ p {
     height: 60px; 
 }
 
+.clear-top {
+  clear:both;
+  height: 10px;
+}
+
 footer {
    display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
     position: fixed;
     font-size: 12px;
     bottom: 0;
@@ -198,8 +203,7 @@ footer {
 .statusText
 {
     color: rgb(10,10,10);
-    font-size:1.2em;
-
+    font-size:small;
 }
 
 .displaystat
@@ -211,5 +215,5 @@ footer {
     text-transform: uppercase;
     font-weight: 500;
     display: inline-block;
-    width: 200px;
+    /*width: 200px;*/
 }

@@ -131,6 +131,7 @@ function SetupGrid(rows, cols, perc_bombs)
     console.log(`Remaining Mines = ${remaining_mines}, Total Bombs = ${total_bombs}`);
     document.getElementById('minecount').innerHTML = remaining_mines.toString();
     document.getElementById('bombcount').innerHTML = total_bombs.toString();
+    document.getElementById('flaggedcount').innerHTML = minesweeper.TotalFlags();
 
     document.getElementById('main').innerHTML = my_HTML;  
 
@@ -150,25 +151,25 @@ function SetupGrid(rows, cols, perc_bombs)
 
 const prev_color = "rgb(165, 164, 164)";
 const open_color = "rgb(255, 255, 255)";
-const bomb_color = "rgb(0,0,0)";
+const bomb_color = "rgba(255, 0, 0, 0.459)";
 $(document).ready(function(){
+    
+    // POPULATE GRID
     SetupGrid(row,col,GetPercentBombs());
+
+    // LEFT CLICK EVENT
     $(document).on('click', ".cell", function() {
         if (inactive) return;
         var idx = $(".cell").index( this ); // Get the index of the div
         var [i, j] = minesweeper.GetCoords(idx); 
-
-        
-        console.log(`Cell clicked ${i}, ${j}`);
-        //console.log(`Clicked: ${i}, ${j}`);
-        if (minesweeper.IsOpen(i, j))
-            return;
+        if (minesweeper.IsOpen(i, j) || minesweeper.IsFlagged(i,j)) return;
     
         var [is_not_bomb, visited] = minesweeper.Open(i,j);
         if (!is_not_bomb) {
             for (let visited_idx of visited)
             {
                 $(".cell").eq(visited_idx).css("background-color", bomb_color);
+                $(".cell").eq(visited_idx).html("💣");
             }
             openBadNews();
         }
@@ -190,5 +191,23 @@ $(document).ready(function(){
             }
         }
     });
+
+    // RIGHT CLICK EVENT
+    $(document).on("contextmenu",".cell", function(){
+        if (inactive) return;
+        var idx = $(".cell").index( this ); // Get the index of the div
+        var [i, j] = minesweeper.GetCoords(idx); 
+
+        
+        console.log(`Cell Flagged ${i}, ${j}`);
+        
+        if (minesweeper.IsOpen(i,j)) return;
+        minesweeper.FlipFlag(i, j);
+        if(minesweeper.IsFlagged(i, j)) $(".cell").eq(idx).html("🚩");
+        else $(".cell").eq(idx).html("");
+
+        document.getElementById('flaggedcount').innerHTML = minesweeper.TotalFlags();
+        return false;
+    }); 
 });
 

@@ -2,6 +2,7 @@ class Cell {
     constructor() {
         this.open_ = false;
         this.bomb_ = false;
+        this.is_flagged_ = false;
         this.neighbors_ = 0;
     }
 
@@ -11,6 +12,18 @@ class Cell {
 
     IsBomb() {
         return this.bomb_;
+    }
+
+    IsFlagged() {
+        return this.is_flagged_;
+    }
+
+    Flag(){
+        this.is_flagged_ = true;
+    }
+
+    UnFlag(){
+        this.is_flagged_ = false;
     }
 
     Open() {
@@ -39,6 +52,7 @@ class Minesweeper {
         this.rows_ = rows;
         this.bombs_ = new Set();
         this.grid_ = [];
+        this.flag_count_ = 0;
         // O(rows * cols)
         for (var i = 0; i < rows; ++i) {
             this.grid_[i] = [];
@@ -89,7 +103,7 @@ class Minesweeper {
         if (visited.has(idx)) return;
 
         visited.add(idx);
-        //console.log(`DSOpen(${i}, ${j}, idx = ${idx})`);
+        if (this.grid_[i][j].IsFlagged()) --this.flag_count_;
         this.grid_[i][j].Open();
         if (this.HasNeighborBombs(i,j)) return;
         this.direction_.forEach((dir)=>{
@@ -116,5 +130,27 @@ class Minesweeper {
     
     HasNeighborBombs(i, j) {
         return this.NeighborBombCount(i,j) > 0;
+    }
+
+    FlipFlag(i, j)
+    {
+        if (this.grid_[i][j].IsFlagged()){
+            this.grid_[i][j].UnFlag();
+            this.flag_count_--;
+        }
+        else
+        {
+            this.grid_[i][j].Flag();
+            this.flag_count_++;
+        }
+    }
+
+    IsFlagged(i, j){
+        return this.grid_[i][j].IsFlagged();
+    }
+
+    TotalFlags()
+    {
+        return this.flag_count_;
     }
 };
